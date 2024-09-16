@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="719dp">
+        android:layout_height="match_parent"
+        android:background="@color/black">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -148,8 +149,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/panelTop"
-            android:layout_width="413dp"
-            android:layout_height="74dp"
+            android:layout_width="412dp"
+            android:layout_height="75dp"
             app:cardBackgroundColor="@color/material_dynamic_secondary10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
