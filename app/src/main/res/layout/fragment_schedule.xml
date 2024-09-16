@@ -25,12 +25,12 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/constraintLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="165dp">
 
                 <TextView
-                    android:id="@+id/txtMatchName"
+                    android:id="@+id/txtMatchName2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Open Winter Cup - Mobile Legend"
@@ -39,7 +39,7 @@
                     tools:layout_editor_absoluteY="16dp" />
 
                 <TextView
-                    android:id="@+id/txtDate"
+                    android:id="@+id/txtDate2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="09-09-2024 13.00 PM"
@@ -48,7 +48,7 @@
                     tools:layout_editor_absoluteY="140dp" />
 
                 <ImageView
-                    android:id="@+id/imageTim1"
+                    android:id="@+id/imageTim11"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_marginStart="30dp"
@@ -57,7 +57,7 @@
                     tools:layout_editor_absoluteY="49dp" />
 
                 <ImageView
-                    android:id="@+id/imageTim"
+                    android:id="@+id/imageTim1"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_marginEnd="30dp"
@@ -66,14 +66,14 @@
                     tools:layout_editor_absoluteY="49dp" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textView61"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageTim"
-                    app:layout_constraintStart_toEndOf="@+id/imageTim1"
+                    app:layout_constraintEnd_toStartOf="@+id/imageTim1"
+                    app:layout_constraintStart_toEndOf="@+id/imageTim11"
                     tools:layout_editor_absoluteY="66dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -97,16 +97,16 @@
                 android:layout_height="165dp">
 
                 <TextView
-                    android:id="@+id/txtMatchName"
+                    android:id="@+id/txtMatchName1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Open Winter Cup - Valorant"
-                    android:textColor="@color/white"
+                    android:textColor="#FFFFFF"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="16dp" />
 
                 <TextView
-                    android:id="@+id/txtDate"
+                    android:id="@+id/txtDate1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="09-09-2024 13.00 PM"
@@ -115,7 +115,7 @@
                     tools:layout_editor_absoluteY="140dp" />
 
                 <ImageView
-                    android:id="@+id/imageTim1"
+                    android:id="@+id/imageTim12"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_marginStart="30dp"
@@ -124,7 +124,7 @@
                     tools:layout_editor_absoluteY="49dp" />
 
                 <ImageView
-                    android:id="@+id/imageTim"
+                    android:id="@+id/imageTim2"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_marginEnd="30dp"
@@ -133,15 +133,16 @@
                     tools:layout_editor_absoluteY="49dp" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textView62"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageTim"
-                    app:layout_constraintStart_toEndOf="@+id/imageTim1"
+                    app:layout_constraintEnd_toStartOf="@+id/imageTim2"
+                    app:layout_constraintStart_toEndOf="@+id/imageTim12"
                     tools:layout_editor_absoluteY="66dp" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -155,6 +156,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
                 android:layout_width="426dp"
                 android:layout_height="match_parent">
 
@@ -194,21 +196,20 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="165dp">
 
                 <TextView
-                    android:id="@+id/txtMatchName"
+                    android:id="@+id/txtMatchName3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Open Winter Cup - PUBG"
-                    android:textColor="@color/white"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    android:text="Open Winter Cup - Fortnite"
+                    tools:layout_editor_absoluteX="20dp"
+                    tools:layout_editor_absoluteY="14dp" />
 
                 <TextView
-                    android:id="@+id/txtDate"
+                    android:id="@+id/txtDate3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="09-09-2024 13.00 PM"
@@ -217,7 +218,7 @@
                     tools:layout_editor_absoluteY="140dp" />
 
                 <ImageView
-                    android:id="@+id/imageTim1"
+                    android:id="@+id/imageTim13"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_marginStart="30dp"
@@ -226,7 +227,7 @@
                     tools:layout_editor_absoluteY="49dp" />
 
                 <ImageView
-                    android:id="@+id/imageTim"
+                    android:id="@+id/imageTim3"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_marginEnd="30dp"
@@ -235,15 +236,16 @@
                     tools:layout_editor_absoluteY="49dp" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textView63"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageTim"
-                    app:layout_constraintStart_toEndOf="@+id/imageTim1"
+                    app:layout_constraintEnd_toStartOf="@+id/imageTim3"
+                    app:layout_constraintStart_toEndOf="@+id/imageTim13"
                     tools:layout_editor_absoluteY="66dp" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
