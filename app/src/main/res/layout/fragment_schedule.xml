@@ -90,6 +90,16 @@
                     app:layout_constraintEnd_toStartOf="@+id/imageTim1"
                     app:layout_constraintStart_toEndOf="@+id/imageTim11"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnSch2"
+                    android:layout_width="331dp"
+                    android:layout_height="172dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -172,6 +182,16 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/imageTim2"
                     app:layout_constraintStart_toEndOf="@+id/imageTim12"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnSch1"
+                    android:layout_width="333dp"
+                    android:layout_height="169dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -298,6 +318,16 @@
                     app:layout_constraintEnd_toStartOf="@+id/imageTim3"
                     app:layout_constraintStart_toEndOf="@+id/imageTim13"
                     tools:layout_editor_absoluteY="66dp" />
+
+                <Button
+                    android:id="@+id/btnSch3"
+                    android:layout_width="329dp"
+                    android:layout_height="166dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
