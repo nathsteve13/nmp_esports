@@ -9,8 +9,8 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="420dp"
-        android:layout_height="1123dp"
+        android:layout_width="418dp"
+        android:layout_height="932dp"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +20,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardviewgame2"
+            android:id="@+id/cardviewgame1"
             android:layout_width="381dp"
             android:layout_height="349dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:background="@color/material_dynamic_primary20"
             android:outlineProvider="none"
@@ -41,14 +41,15 @@
 
                 <ImageView
                     android:id="@+id/imageViewGame2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="392dp"
+                    android:layout_height="528dp"
                     android:src="@drawable/fortnitelogo"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="-90dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="-163dp" />
 
                 <TextView
-                    android:id="@+id/textViewgame2"
+                    android:id="@+id/textViewFortnite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
@@ -56,35 +57,106 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.12"
+                    app:layout_constraintHorizontal_bias="0.131"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="259dp" />
+                    tools:layout_editor_absoluteY="267dp" />
 
                 <Button
-                    android:id="@+id/btnAchievementFortnite"
+                    android:id="@+id/button"
                     android:layout_width="171dp"
                     android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/button_background"
+                    android:outlineProvider="none"
+                    android:text="Teams"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFortnite"
+                    tools:layout_editor_absoluteY="223dp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="171dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_background"
+                    android:text="Achievement"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.746"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFortnite"
+                    tools:layout_editor_absoluteY="283dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardviewgame2"
+            android:layout_width="381dp"
+            android:layout_height="349dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/material_dynamic_primary20"
+            android:outlineProvider="none"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/panelTop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="384dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageViewGame1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/Valohorizontal"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="-92dp" />
+
+                <TextView
+                    android:id="@+id/textViewgame1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="VALORANT"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.091"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="257dp" />
+
+                <Button
+                    android:id="@+id/btnAchievementValorant"
+                    android:layout_width="171dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@drawable/button_background"
                     android:outlineProvider="none"
                     android:text="Achievement"
                     app:circularflow_defaultRadius="20dp"
                     app:circularflow_radiusInDP="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.577"
-                    app:layout_constraintStart_toEndOf="@+id/textViewgame2"
-                    tools:layout_editor_absoluteY="222dp" />
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textViewgame1"
+                    tools:layout_editor_absoluteY="273dp" />
 
                 <Button
-                    android:id="@+id/btnTeamFortnite"
+                    android:id="@+id/btnTeamValorant"
                     android:layout_width="171dp"
                     android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@drawable/button_background"
                     android:outlineProvider="none"
                     android:text="Teams"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.577"
+                    app:layout_constraintHorizontal_bias="0.25"
                     app:layout_constraintStart_toEndOf="@+id/textViewgame2"
-                    tools:layout_editor_absoluteY="283dp" />
+                    tools:layout_editor_absoluteY="207dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -130,76 +202,6 @@
                     app:layout_constraintHorizontal_bias="0.049"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardviewgame2"
-            android:layout_width="381dp"
-            android:layout_height="349dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/material_dynamic_primary20"
-            android:outlineProvider="none"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.567"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/panelTop">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="384dp"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageViewGame2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/Valohorizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="-78dp" />
-
-                <TextView
-                    android:id="@+id/textViewgame2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="VALORANT"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.12"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="259dp" />
-
-                <Button
-                    android:id="@+id/btnAchievementFortnite"
-                    android:layout_width="171dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/button_background"
-                    android:outlineProvider="none"
-                    android:text="Achievement"
-                    app:circularflow_defaultRadius="20dp"
-                    app:circularflow_radiusInDP="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.577"
-                    app:layout_constraintStart_toEndOf="@+id/textViewgame2"
-                    tools:layout_editor_absoluteY="222dp" />
-
-                <Button
-                    android:id="@+id/btnTeamFortnite"
-                    android:layout_width="171dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/button_background"
-                    android:outlineProvider="none"
-                    android:text="Teams"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.577"
-                    app:layout_constraintStart_toEndOf="@+id/textViewgame2"
-                    tools:layout_editor_absoluteY="283dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
