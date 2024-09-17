@@ -36,8 +36,12 @@
                     android:layout_height="wrap_content"
                     android:text="Open Winter Cup - Mobile Legend"
                     android:textColor="@color/white"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.109" />
 
                 <TextView
                     android:id="@+id/txtDate2"
@@ -45,26 +49,36 @@
                     android:layout_height="wrap_content"
                     android:text="09-09-2024 13.00 PM"
                     android:textColor="@color/white"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="140dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.151"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.89" />
 
                 <ImageView
                     android:id="@+id/imageTim11"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
-                    android:layout_marginStart="30dp"
                     android:src="@drawable/logotim1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.111"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="49dp" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.494" />
 
                 <ImageView
                     android:id="@+id/imageTim1"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
-                    android:layout_marginEnd="30dp"
                     android:src="@drawable/logotim1"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:layout_editor_absoluteY="49dp" />
+                    app:layout_constraintHorizontal_bias="0.902"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.494" />
 
                 <TextView
                     android:id="@+id/textView61"
@@ -73,9 +87,20 @@
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/imageTim1"
                     app:layout_constraintStart_toEndOf="@+id/imageTim11"
-                    tools:layout_editor_absoluteY="66dp" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnSch2"
+                    android:layout_width="331dp"
+                    android:layout_height="172dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -103,8 +128,12 @@
                     android:layout_height="wrap_content"
                     android:text="Open Winter Cup - Valorant"
                     android:textColor="#FFFFFF"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.187"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.109" />
 
                 <TextView
                     android:id="@+id/txtDate1"
@@ -112,8 +141,12 @@
                     android:layout_height="wrap_content"
                     android:text="09-09-2024 13.00 PM"
                     android:textColor="@color/white"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="140dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.156"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.89" />
 
                 <ImageView
                     android:id="@+id/imageTim12"
@@ -121,17 +154,24 @@
                     android:layout_height="66dp"
                     android:layout_marginStart="30dp"
                     android:src="@drawable/logotim1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="49dp" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.494" />
 
                 <ImageView
                     android:id="@+id/imageTim2"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
-                    android:layout_marginEnd="30dp"
                     android:src="@drawable/logotim1"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:layout_editor_absoluteY="49dp" />
+                    app:layout_constraintHorizontal_bias="0.906"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.494" />
 
                 <TextView
                     android:id="@+id/textView62"
@@ -140,9 +180,20 @@
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/imageTim2"
                     app:layout_constraintStart_toEndOf="@+id/imageTim12"
-                    tools:layout_editor_absoluteY="66dp" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnSch1"
+                    android:layout_width="333dp"
+                    android:layout_height="169dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -167,19 +218,26 @@
                     android:layout_height="wrap_content"
                     android:text="Our Schedule"
                     android:textColor="@color/white"
-                    android:textSize="24sp"
-                    tools:layout_editor_absoluteX="59dp"
-                    tools:layout_editor_absoluteY="21dp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/btnBack"
-                    android:layout_width="31dp"
-                    android:layout_height="26dp"
+                    android:layout_width="21dp"
+                    android:layout_height="16dp"
                     android:background="@drawable/baseline_arrow_back_ios_new_24"
                     android:backgroundTint="@color/white"
                     android:textColor="@color/white"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="23dp" />
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView4"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -206,8 +264,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Open Winter Cup - Fortnite"
-                    tools:layout_editor_absoluteX="20dp"
-                    tools:layout_editor_absoluteY="14dp" />
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.178"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.109" />
 
                 <TextView
                     android:id="@+id/txtDate3"
@@ -215,26 +278,36 @@
                     android:layout_height="wrap_content"
                     android:text="09-09-2024 13.00 PM"
                     android:textColor="@color/white"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="140dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.151"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.89" />
 
                 <ImageView
                     android:id="@+id/imageTim13"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
-                    android:layout_marginStart="30dp"
                     android:src="@drawable/logotim1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.111"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="49dp" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.494" />
 
                 <ImageView
                     android:id="@+id/imageTim3"
                     android:layout_width="65dp"
                     android:layout_height="66dp"
-                    android:layout_marginEnd="30dp"
                     android:src="@drawable/logotim1"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:layout_editor_absoluteY="49dp" />
+                    app:layout_constraintHorizontal_bias="0.902"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.484" />
 
                 <TextView
                     android:id="@+id/textView63"
@@ -243,9 +316,20 @@
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnSch3"
                     app:layout_constraintEnd_toStartOf="@+id/imageTim3"
                     app:layout_constraintStart_toEndOf="@+id/imageTim13"
-                    tools:layout_editor_absoluteY="66dp" />
+                    app:layout_constraintTop_toTopOf="@+id/btnSch3" />
+
+                <Button
+                    android:id="@+id/btnSch3"
+                    android:layout_width="329dp"
+                    android:layout_height="166dp"
+                    android:backgroundTint="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

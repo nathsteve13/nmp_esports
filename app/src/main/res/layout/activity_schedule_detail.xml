@@ -6,100 +6,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".InformationActivity">
+    tools:context=".ScheduleDetailActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:fontFamily="monospace"
-        android:text="Dogon Esportsz"
+        android:text="MATCH TITLE"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif-monospace"
-        android:text="About us"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.084" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="414dp"
-        android:layout_height="264dp"
-        android:src="@drawable/esportimage"
+        android:id="@+id/imageView2"
+        android:layout_width="382dp"
+        android:layout_height="241dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.178"
+        app:srcCompat="@drawable/aboutusesport" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="341dp"
-        android:layout_height="271dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="monospace"
+        android:id="@+id/txtDescription"
+        android:layout_width="381dp"
+        android:layout_height="199dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus quam, faucibus ut congue ac, finibus nec magna. Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. Nam tempor mi in nibh euismod, vitae vehicula justo elementum. Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. Proin congue felis in turpis rutrum, vel fermentum diam consectetur. Aenean convallis magna in cursus iaculis. Donec varius, libero in euismod efficitur, felis risus sagittis leo, a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, vehicula consequat turpis. Donec nec tincidunt ipsum.  "
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
+        android:textColor="#F3F3F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintVertical_bias="0.644" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Notify Me"
+        android:textColor="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnNotify"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.809" />
 
     <Button
-        android:id="@+id/backHomeBtn"
-        android:layout_width="178dp"
-        android:layout_height="28dp"
-        android:background="@android:drawable/button_onoff_indicator_off"
-        android:backgroundTint="#FFFFFF"
+        android:id="@+id/btnNotify"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:background="@android:drawable/ic_popup_reminder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="Back"
-        android:textColor="#000000"
+        android:text="Time Detail"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.246" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="203dp"
-        android:layout_height="303dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158"
-        app:srcCompat="@drawable/blackfade" />
+        app:layout_constraintVertical_bias="0.447" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="210dp"
-        android:layout_height="299dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157"
-        app:srcCompat="@drawable/blackfade" />
 </androidx.constraintlayout.widget.ConstraintLayout>
