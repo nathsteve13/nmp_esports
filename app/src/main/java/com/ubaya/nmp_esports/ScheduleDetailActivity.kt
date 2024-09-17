@@ -1,5 +1,6 @@
 package com.ubaya.nmp_esports
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,5 +23,15 @@ class ScheduleDetailActivity : AppCompatActivity() {
         binding.txtTitle.text = scheduleTitle
         binding.txtTime.text = scheduleTime
         binding.txtDescription.text = description
+
+        binding.btnNotify.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Notification")
+                .setMessage("Notification created")
+                .setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
 }

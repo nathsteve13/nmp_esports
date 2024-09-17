@@ -315,9 +315,10 @@
                     android:text="VS"
                     android:textColor="@color/white"
                     android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnSch3"
                     app:layout_constraintEnd_toStartOf="@+id/imageTim3"
                     app:layout_constraintStart_toEndOf="@+id/imageTim13"
-                    tools:layout_editor_absoluteY="66dp" />
+                    app:layout_constraintTop_toTopOf="@+id/btnSch3" />
 
                 <Button
                     android:id="@+id/btnSch3"

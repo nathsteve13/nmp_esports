@@ -37,6 +37,46 @@
         app:srcCompat="@drawable/aboutusesport" />
 
     <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="381dp"
+        android:layout_height="199dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus quam, faucibus ut congue ac, finibus nec magna. Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. Nam tempor mi in nibh euismod, vitae vehicula justo elementum. Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. Proin congue felis in turpis rutrum, vel fermentum diam consectetur. Aenean convallis magna in cursus iaculis. Donec varius, libero in euismod efficitur, felis risus sagittis leo, a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, vehicula consequat turpis. Donec nec tincidunt ipsum.  "
+        android:textAlignment="center"
+        android:textColor="#F3F3F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.644" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Notify Me"
+        android:textColor="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnNotify"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.809" />
+
+    <Button
+        android:id="@+id/btnNotify"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:background="@android:drawable/ic_popup_reminder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816" />
+
+    <TextView
         android:id="@+id/txtTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,47 +87,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.424" />
+        app:layout_constraintVertical_bias="0.447" />
 
-    <TextView
-        android:id="@+id/txtDescription"
-        android:layout_width="381dp"
-        android:layout_height="199dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus quam, faucibus ut congue ac, finibus nec magna. Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. Nam tempor mi in nibh euismod, vitae vehicula justo elementum. Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. Proin congue felis in turpis rutrum, vel fermentum diam consectetur. Aenean convallis magna in cursus iaculis. Donec varius, libero in euismod efficitur, felis risus sagittis leo, a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, vehicula consequat turpis. Donec nec tincidunt ipsum.  "
-        android:textAlignment="center"
-        android:textColor="#F3F3F3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Notify Me"
-        android:textColor="#FDFDFD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:background="@android:drawable/ic_popup_reminder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
 </androidx.constraintlayout.widget.ConstraintLayout>
