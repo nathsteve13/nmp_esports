@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.nmp_esports.databinding.ActivityInformationBinding
 import com.ubaya.nmp_esports.databinding.ActivityPlayBinding
 
@@ -16,6 +17,10 @@ class PlayActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityPlayBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.recGames.layoutManager = LinearLayoutManager(this)
+        binding.recGames.setHasFixedSize(true)
+        binding.recGames.adapter = GameAdapter()
 
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, HomeFragment::class.java)
