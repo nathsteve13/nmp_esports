@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.nmp_esports.databinding.FragmentHomeBinding
 import com.ubaya.nmp_esports.databinding.FragmentScheduleBinding
 
@@ -43,71 +44,9 @@ class ScheduleFragment : Fragment() {
         binding = FragmentScheduleBinding.inflate(layoutInflater)
         val view = binding.root
 
-        binding.btnSch1.setOnClickListener {
-            val scheduleTitle = "Open Winter Cup - Valorant"
-            val scheduleTime = "09-09-2024 13.00 PM"
-            val description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Donec purus quam, faucibus ut congue ac, finibus nec magna. " +
-                    "Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. " +
-                    "Nam tempor mi in nibh euismod, vitae vehicula justo elementum. " +
-                    "Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. " +
-                    "Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. " +
-                    "Proin congue felis in turpis rutrum, vel fermentum diam consectetur. " +
-                    "Aenean convallis magna in cursus iaculis. " +
-                    "Donec varius, libero in euismod efficitur, felis risus sagittis leo, " +
-                    "a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, " +
-                    "vehicula consequat turpis. Donec nec tincidunt ipsum.  "
-
-            val intent = Intent(activity, ScheduleDetailActivity::class.java)
-            intent.putExtra(SCHEDULE_TITLE, scheduleTitle)
-            intent.putExtra(SCHEDULE_TIME, scheduleTime)
-            intent.putExtra(DESCRIPTION, description)
-            startActivity(intent)
-        }
-
-        binding.btnSch2.setOnClickListener {
-            val scheduleTitle = "Open Winter Cup - Mobile Legend"
-            val scheduleTime = "09-09-2024 13.00 PM"
-            val description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Donec purus quam, faucibus ut congue ac, finibus nec magna. " +
-                    "Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. " +
-                    "Nam tempor mi in nibh euismod, vitae vehicula justo elementum. " +
-                    "Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. " +
-                    "Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. " +
-                    "Proin congue felis in turpis rutrum, vel fermentum diam consectetur. " +
-                    "Aenean convallis magna in cursus iaculis. " +
-                    "Donec varius, libero in euismod efficitur, felis risus sagittis leo, " +
-                    "a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, " +
-                    "vehicula consequat turpis. Donec nec tincidunt ipsum.  "
-
-            val intent = Intent(activity, ScheduleDetailActivity::class.java)
-            intent.putExtra(SCHEDULE_TITLE, scheduleTitle)
-            intent.putExtra(SCHEDULE_TIME, scheduleTime)
-            intent.putExtra(DESCRIPTION, description)
-            startActivity(intent)
-        }
-
-        binding.btnSch3.setOnClickListener {
-            val scheduleTitle = "Open Winter Cup - Fortnite"
-            val scheduleTime = "09-09-2024 13.00 PM"
-            val description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Donec purus quam, faucibus ut congue ac, finibus nec magna. " +
-                    "Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. " +
-                    "Nam tempor mi in nibh euismod, vitae vehicula justo elementum. " +
-                    "Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. " +
-                    "Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. " +
-                    "Proin congue felis in turpis rutrum, vel fermentum diam consectetur. " +
-                    "Aenean convallis magna in cursus iaculis. " +
-                    "Donec varius, libero in euismod efficitur, felis risus sagittis leo, " +
-                    "a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, " +
-                    "vehicula consequat turpis. Donec nec tincidunt ipsum.  "
-
-            val intent = Intent(activity, ScheduleDetailActivity::class.java)
-            intent.putExtra(SCHEDULE_TITLE, scheduleTitle)
-            intent.putExtra(SCHEDULE_TIME, scheduleTime)
-            intent.putExtra(DESCRIPTION, description)
-            startActivity(intent)
-        }
+        binding.recSchedule.layoutManager = LinearLayoutManager(requireContext())
+        binding.recSchedule.setHasFixedSize(true)
+        binding.recSchedule.adapter = ScheduleAdapter()
 
         return view
     }
@@ -115,17 +54,9 @@ class ScheduleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnBack = view.findViewById<Button>(R.id.btnBack)
-        btnBack.setOnClickListener {
-            parentFragmentManager.popBackStack()
-        }
     }
 
     companion object {
-        const val SCHEDULE_TITLE = "schedule_title"
-        const val SCHEDULE_TIME = "schedule_time"
-        const val DESCRIPTION = "description"
-
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
