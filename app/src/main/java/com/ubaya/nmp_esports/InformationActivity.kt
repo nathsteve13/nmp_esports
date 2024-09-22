@@ -21,5 +21,11 @@ class InformationActivity : AppCompatActivity() {
             val intent = Intent(this, HomeFragment::class.java)
             startActivity(intent)
         }
+        var numLike = 0;
+        binding.txtLikeNum.text = numLike.toString()
+        binding.btnLike.setOnClickListener {
+            numLike += numLike
+            binding.txtLikeNum.text = numLike.toString()
+        }
     }
 }
