@@ -24,7 +24,7 @@ class InformationActivity : AppCompatActivity() {
         var numLike = 0;
         binding.txtLikeNum.text = numLike.toString()
         binding.btnLike.setOnClickListener {
-            numLike += numLike
+            numLike += 1
             binding.txtLikeNum.text = numLike.toString()
         }
     }
