@@ -12,7 +12,7 @@ object ScheduleData {
                 "Aenean convallis magna in cursus iaculis. " +
                 "Donec varius, libero in euismod efficitur, felis risus sagittis leo, " +
                 "a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, " +
-                "vehicula consequat turpis. Donec nec tincidunt ipsum.  ", R.drawable.valohorizontal),
+                "vehicula consequat turpis. Donec nec tincidunt ipsum.  ", R.drawable.valohorizontal2),
         Schedule("Open Winter Cup - Mobile Legend","27-09-2024 13.00 PM", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Donec purus quam, faucibus ut congue ac, finibus nec magna. " +
                 "Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. " +

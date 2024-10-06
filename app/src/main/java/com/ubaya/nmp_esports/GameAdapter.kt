@@ -1,5 +1,6 @@
 package com.ubaya.nmp_esports
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,12 @@ class GameAdapter() : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
         holder.binding.imgGame.setImageResource(gameData.games[position].imageId)
         holder.binding.txtGameTitle.text = gameData.games[position].gameTitle
+
+        holder.binding.btnAchievement.setOnClickListener{
+            val intent = Intent(holder.itemView.context, AchievementDetailActivity::class.java)
+            intent.putExtra("game_index", position)
+            holder.itemView.context.startActivity(intent)
+        }
 
     }
 }
