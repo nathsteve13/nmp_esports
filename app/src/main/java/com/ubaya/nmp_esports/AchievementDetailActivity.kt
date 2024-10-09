@@ -17,6 +17,12 @@ class AchievementDetailActivity : AppCompatActivity() {
         binding = ActivityAchievementDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val index = intent.getIntExtra("game_index", 0)
+        binding.txtGameName.setText(gameData.games[index].gameTitle)
+
+        val imgId = gameData.games[index].imageId
+        binding.imgGame.setImageResource(imgId)
+
         val items = arrayOf("All", "2024", "2023", "2023", "2022", "2021", "2020")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
