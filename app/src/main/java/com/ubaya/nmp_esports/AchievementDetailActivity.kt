@@ -18,39 +18,54 @@ class AchievementDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val index = intent.getIntExtra("game_index", 0)
-        binding.txtGameName.setText(gameData.games[index].gameTitle)
+        val selectedGame = gameData.games[index].gameTitle
+        binding.txtGameName.setText(selectedGame)
 
         val imgId = gameData.games[index].imageId
         binding.imgGame.setImageResource(imgId)
 
-        val items = arrayOf("All", "2024", "2023", "2023", "2022", "2021", "2020")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
+        val years = AchievementData.achievement
+            .filter { it.achievementGame == selectedGame }
+            .map { it.achievementDate }
+            .distinct()
+            .toMutableList()
+        years.add(0, "All")
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, years)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerDate.adapter = adapter
 
-        binding.spinnerDate.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?,
-                                        position: Int, id: Long) {
-                val selectedItem = items[position]
+        binding.spinnerDate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedYear = years[position]
 
-                val displayText = when (selectedItem) {
-                    "All" -> "Menampilkan semua data"
-                    "2024" -> "Menampilkan data untuk tahun 2024"
-                    "2023" -> "Menampilkan data untuk tahun 2023"
-                    "2022" -> "Menampilkan data untuk tahun 2022"
-                    "2021" -> "Menampilkan data untuk tahun 2021"
-                    "2020" -> "Menampilkan data untuk tahun 2020"
-                    else -> "Tidak ada data"
+                val filteredAchievements: List<Achievement> = if (selectedYear == "All") {
+                    AchievementData.achievement.filter { it.achievementGame.toString() == selectedGame }
+                } else {
+                    AchievementData.achievement.filter {
+                        it.achievementGame.toString() == selectedGame && it.achievementDate == selectedYear
+                    }
+                }
+                val displayText = if (filteredAchievements.isEmpty()) {
+                    "No achievement in $selectedYear"
+                } else {
+                    filteredAchievements.joinToString(separator = "\n") { achievement ->
+                        "${achievement.achievementTitle} in ${achievement.achievementGame} (${achievement.achievementDate}), Team: ${achievement.achievementTeam}"
+                    }
                 }
 
                 binding.txtAchievement.text = displayText
-
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
             }
 
         }
-
     }
 }
