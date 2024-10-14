@@ -13,11 +13,7 @@
         android:theme="@style/Theme.Nmp_esports"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-            android:name=".TeamDetail"
-=======
             android:name=".TeamActivity"
->>>>>>> e679c5207809f862baf8465b00c607f48fe96664
             android:exported="false" />
         <activity
             android:name=".AchievementDetailActivity"
