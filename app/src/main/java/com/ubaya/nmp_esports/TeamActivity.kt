@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.nmp_esports.databinding.ActivityPlayBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamBinding
 
@@ -18,6 +19,8 @@ class TeamActivity : AppCompatActivity() {
         binding = ActivityTeamBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.
+        binding.recTeam.layoutManager = LinearLayoutManager(this)
+        binding.recTeam.setHasFixedSize(true)
+        binding.recTeam.adapter = TeamAdapter()
     }
 }
