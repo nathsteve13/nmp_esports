@@ -9,12 +9,13 @@ import com.ubaya.nmp_esports.TeamData.team
 import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamBinding
 import com.ubaya.nmp_esports.databinding.GameCardBinding
+import com.ubaya.nmp_esports.databinding.TeamCardBinding
 
 class TeamAdapter() : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
-    class TeamViewHolder(val binding: ActivityTeamBinding):RecyclerView.ViewHolder(binding.root)
+    class TeamViewHolder(val binding: TeamCardBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamAdapter.TeamViewHolder {
-        val binding = ActivityTeamBinding.inflate(
+        val binding = TeamCardBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,false)
         return TeamViewHolder(binding)
