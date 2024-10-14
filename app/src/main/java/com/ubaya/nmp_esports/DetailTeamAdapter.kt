@@ -4,27 +4,25 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ubaya.nmp_esports.AchievementAdapter.AchievementViewHolder
+import com.ubaya.nmp_esports.DetailTeamData.detailTeam
 import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamDetailBinding
+import com.ubaya.nmp_esports.databinding.MemberCardBinding
 
 class DetailTeamAdapter : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewHolder>(){
-    class DetailTeamViewHolder(val binding: ActivityTeamDetailBinding):RecyclerView.ViewHolder(binding.root)
+    class DetailTeamViewHolder(val binding: MemberCardBinding):RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): DetailTeamAdapter.DetailTeamViewHolder {
-        val binding = ActivityTeamDetailBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailTeamViewHolder {
+        val binding = MemberCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DetailTeamViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return DetailTeamData.detailTeam.size
     }
 
     override fun onBindViewHolder(holder: DetailTeamAdapter.DetailTeamViewHolder, position: Int) {
-
+        holder.binding.txtName.text = detailTeam[position].members[position]
+        holder.binding.txtRole.text = detailTeam[position].roles[position]
     }
 }

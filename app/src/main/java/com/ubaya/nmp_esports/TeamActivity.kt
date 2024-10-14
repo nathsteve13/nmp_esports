@@ -18,6 +18,5 @@ class TeamActivity : AppCompatActivity() {
         binding = ActivityTeamBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.
     }
 }
