@@ -19,6 +19,10 @@ class TeamActivity : AppCompatActivity() {
         binding = ActivityTeamBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val index = intent.getIntExtra("team_index", 0)
+        val selectedGame = gameData.games[index].imageId
+        binding.imgViewGame.setImageResource(selectedGame)
+
         binding.recTeam.layoutManager = LinearLayoutManager(this)
         binding.recTeam.setHasFixedSize(true)
         binding.recTeam.adapter = TeamAdapter()

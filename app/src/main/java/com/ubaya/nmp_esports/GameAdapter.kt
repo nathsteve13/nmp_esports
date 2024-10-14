@@ -30,6 +30,12 @@ class GameAdapter() : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
             intent.putExtra("game_index", position)
             holder.itemView.context.startActivity(intent)
         }
+        holder.binding.btnTeam.setOnClickListener{
+            val intent = Intent(holder.itemView.context, TeamActivity::class.java)
+            intent.putExtra("team_index", position)
+            intent.putExtra("game_image", gameData.games[position].imageId)
+            holder.itemView.context.startActivity(intent)
+        }
 
     }
 }
