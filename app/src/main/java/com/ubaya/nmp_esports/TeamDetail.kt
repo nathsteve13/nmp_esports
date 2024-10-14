@@ -18,9 +18,11 @@ class TeamDetail : AppCompatActivity() {
         setContentView(binding.root)
 
         val index = intent.getIntExtra("team_index", 0)
+        val selectedTeam = DetailTeamData.detailTeam[index]
+        binding.txtNamaTeam.text = selectedTeam.teamName
 
         binding.recTeamDetails.layoutManager = LinearLayoutManager(this)
         binding.recTeamDetails.setHasFixedSize(true)
-        binding.recTeamDetails.adapter = DetailTeamAdapter()
+        binding.recTeamDetails.adapter = DetailTeamAdapter(selectedTeam)
     }
 }

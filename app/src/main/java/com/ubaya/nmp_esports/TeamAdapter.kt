@@ -28,7 +28,7 @@ class TeamAdapter() : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
         holder.binding.txtGameName.text = game?.gameTitle ?: "Unknown Game"
 
         holder.binding.btnView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, TeamActivity::class.java)
+            val intent = Intent(holder.itemView.context, TeamDetail::class.java)
             intent.putExtra("team_index", position)
             holder.itemView.context.startActivity(intent)
         }

@@ -9,7 +9,7 @@ import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamDetailBinding
 import com.ubaya.nmp_esports.databinding.MemberCardBinding
 
-class DetailTeamAdapter : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewHolder>(){
+class DetailTeamAdapter(private val detailTeam: DetailTeam) : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewHolder>(){
     class DetailTeamViewHolder(val binding: MemberCardBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailTeamViewHolder {
@@ -22,7 +22,7 @@ class DetailTeamAdapter : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewH
     }
 
     override fun onBindViewHolder(holder: DetailTeamAdapter.DetailTeamViewHolder, position: Int) {
-        holder.binding.txtName.text = detailTeam[position].members[position]
-        holder.binding.txtRole.text = detailTeam[position].roles[position]
+        holder.binding.txtName.text = detailTeam.members[position]
+        holder.binding.txtRole.text = detailTeam.roles[position]
     }
 }
