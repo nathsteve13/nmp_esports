@@ -21,6 +21,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <!-- RecyclerView for displaying the team members -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recTeam"
         android:layout_width="match_parent"

@@ -45,10 +45,10 @@ class AchievementDetailActivity : AppCompatActivity() {
                 val selectedYear = years[position]
 
                 val filteredAchievements: List<Achievement> = if (selectedYear == "All") {
-                    AchievementData.achievement.filter { it.achievementGame.toString() == selectedGame }
+                    AchievementData.achievement.filter { it.achievementGame == selectedGame }
                 } else {
                     AchievementData.achievement.filter {
-                        it.achievementGame.toString() == selectedGame && it.achievementDate == selectedYear
+                        it.achievementGame == selectedGame && it.achievementDate == selectedYear
                     }
                 }
                 val displayText = if (filteredAchievements.isEmpty()) {

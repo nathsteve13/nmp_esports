@@ -3,10 +3,7 @@ package com.ubaya.nmp_esports
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ubaya.nmp_esports.databinding.ActivityPlayBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamBinding
 
 class TeamActivity : AppCompatActivity() {
@@ -20,12 +17,17 @@ class TeamActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val index = intent.getIntExtra("team_index", 0)
-        val selectedGame = gameData.games[index].imageId
-        binding.imgViewGame.setImageResource(selectedGame)
+        val selectedGame = gameData.games[index]
+        val selectedGameId = selectedGame.idGame
+        val selectedGameImage = selectedGame.imageId
+
+        val filteredTeams = TeamData.team.filter { it.idGame == selectedGameId }
+
+        binding.imgViewGame.setImageResource(selectedGameImage)
 
         binding.recTeam.layoutManager = LinearLayoutManager(this)
         binding.recTeam.setHasFixedSize(true)
-        binding.recTeam.adapter = TeamAdapter()
+        binding.recTeam.adapter = TeamAdapter(filteredTeams.toTypedArray(), gameData.games)
 
     }
 }

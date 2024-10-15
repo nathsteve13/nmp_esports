@@ -4,14 +4,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ubaya.nmp_esports.AchievementAdapter.AchievementViewHolder
-import com.ubaya.nmp_esports.TeamData.team
-import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
-import com.ubaya.nmp_esports.databinding.ActivityTeamBinding
-import com.ubaya.nmp_esports.databinding.GameCardBinding
 import com.ubaya.nmp_esports.databinding.TeamCardBinding
 
-class TeamAdapter() : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
+class TeamAdapter(
+    private val teamArray: Array<Team>,
+    private val gameArray: Array<game>
+) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
     class TeamViewHolder(val binding: TeamCardBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamAdapter.TeamViewHolder {
@@ -21,11 +19,17 @@ class TeamAdapter() : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
         return TeamViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TeamAdapter.TeamViewHolder, position: Int) {
-        holder.binding.txtTeamName.text = TeamData.team[position].teamName
+    private fun getGameNameById(idGame: String, gameArray: Array<game>): String? {
+        val game = gameArray.find { it.idGame == idGame }
+        return game?.gameTitle
+    }
 
-        val game = gameData.games.find { it.idGame == team[position].idGame }
-        holder.binding.txtGameName.text = game?.gameTitle ?: "Unknown Game"
+
+    override fun onBindViewHolder(holder: TeamAdapter.TeamViewHolder, position: Int) {
+        val team = TeamData.team[position]
+        val gameName = getGameNameById(team.idGame, gameArray)
+        holder.binding.txtTeam.text = team.teamName
+        holder.binding.txtGame.text = gameName ?: "Unknown Game"
 
         holder.binding.btnView.setOnClickListener {
             val intent = Intent(holder.itemView.context, TeamDetail::class.java)
@@ -35,7 +39,7 @@ class TeamAdapter() : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return TeamData.team.size
+        return teamArray.size
     }
 
 }
