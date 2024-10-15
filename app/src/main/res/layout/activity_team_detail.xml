@@ -52,6 +52,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMembers"
         android:layout_width="409dp"
         android:layout_height="654dp"
         app:layout_constraintBottom_toBottomOf="parent"

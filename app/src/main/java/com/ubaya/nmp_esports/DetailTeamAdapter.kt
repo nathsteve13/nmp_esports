@@ -3,13 +3,10 @@ package com.ubaya.nmp_esports
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ubaya.nmp_esports.AchievementAdapter.AchievementViewHolder
 import com.ubaya.nmp_esports.DetailTeamData.detailTeam
-import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
-import com.ubaya.nmp_esports.databinding.ActivityTeamDetailBinding
 import com.ubaya.nmp_esports.databinding.MemberCardBinding
 
-class DetailTeamAdapter : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewHolder>(){
+class DetailTeamAdapter(selectedTeam: DetailTeam) : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewHolder>(){
     class DetailTeamViewHolder(val binding: MemberCardBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailTeamViewHolder {
@@ -21,7 +18,7 @@ class DetailTeamAdapter : RecyclerView.Adapter<DetailTeamAdapter.DetailTeamViewH
         return DetailTeamData.detailTeam.size
     }
 
-    override fun onBindViewHolder(holder: DetailTeamAdapter.DetailTeamViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DetailTeamViewHolder, position: Int) {
         holder.binding.txtName.text = detailTeam[position].members[position]
         holder.binding.txtRole.text = detailTeam[position].roles[position]
     }
