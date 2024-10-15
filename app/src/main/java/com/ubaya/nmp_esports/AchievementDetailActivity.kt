@@ -1,5 +1,6 @@
 package com.ubaya.nmp_esports
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -24,6 +25,10 @@ class AchievementDetailActivity : AppCompatActivity() {
         val imgId = gameData.games[index].imageId
         binding.imgGame.setImageResource(imgId)
 
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, PlayActivity::class.java)
+            startActivity(intent)
+        }
         val years = AchievementData.achievement
             .filter { it.achievementGame == selectedGame }
             .map { it.achievementDate }
