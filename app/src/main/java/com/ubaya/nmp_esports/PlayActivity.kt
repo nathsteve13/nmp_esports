@@ -23,7 +23,7 @@ class PlayActivity : AppCompatActivity() {
         binding.recGames.adapter = GameAdapter()
 
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, HomeFragment::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
