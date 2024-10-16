@@ -1,5 +1,6 @@
 package com.ubaya.nmp_esports
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,11 @@ class TeamActivity : AppCompatActivity() {
         binding.recTeam.layoutManager = LinearLayoutManager(this)
         binding.recTeam.setHasFixedSize(true)
         binding.recTeam.adapter = TeamAdapter(filteredTeams.toTypedArray(), gameData.games)
+
+        binding.btnBack.setOnClickListener{
+            val intent = Intent(this, PlayActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

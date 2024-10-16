@@ -1,5 +1,6 @@
 package com.ubaya.nmp_esports
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,5 +21,10 @@ class TeamDetail : AppCompatActivity() {
         binding.recTeamDetails.layoutManager = LinearLayoutManager(this)
         binding.recTeamDetails.setHasFixedSize(true)
         binding.recTeamDetails.adapter = DetailTeamAdapter(selectedTeam)
+
+        binding.btnBack.setOnClickListener{
+            val intent = Intent(this, TeamActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
