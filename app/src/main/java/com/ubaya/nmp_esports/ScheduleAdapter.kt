@@ -26,6 +26,7 @@ class ScheduleAdapter: RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>(
         holder.binding.txtScheduleTitle.text = schedule[position].scheduleTitle
         holder.binding.txtScheduleTime.text = schedule[position].scheduleTime
 
+
         holder.binding.btnDetail.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ScheduleDetailActivity::class.java)

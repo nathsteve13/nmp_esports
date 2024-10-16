@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/backHomeBtn2"
+            android:id="@+id/backHomeBtn"
             android:layout_width="178dp"
             android:layout_height="28dp"
             android:layout_marginStart="45dp"

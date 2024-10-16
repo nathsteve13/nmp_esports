@@ -36,11 +36,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val view = binding.root
 
-        // Set button click listeners
         binding.detailBtn.setOnClickListener {
             val intent = Intent(activity, InformationActivity::class.java)
             startActivity(intent)
