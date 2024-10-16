@@ -28,7 +28,8 @@
                 android:id="@+id/imgMember"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:scaleType="fitCenter"
+                tools:srcCompat="@drawable/profile_1" />
 
             <TextView
                 android:id="@+id/txtName"
