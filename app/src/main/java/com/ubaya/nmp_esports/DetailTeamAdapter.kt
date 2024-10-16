@@ -3,7 +3,6 @@ package com.ubaya.nmp_esports
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ubaya.nmp_esports.AchievementAdapter.AchievementViewHolder
 import com.ubaya.nmp_esports.DetailTeamData.detailTeam
 import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamDetailBinding
