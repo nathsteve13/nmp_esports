@@ -17,6 +17,7 @@ class MenuActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {

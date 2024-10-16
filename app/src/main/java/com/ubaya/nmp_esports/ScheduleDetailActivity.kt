@@ -1,6 +1,7 @@
 package com.ubaya.nmp_esports
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,11 @@ class ScheduleDetailActivity : AppCompatActivity() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, ScheduleFragment::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -49,7 +49,7 @@ class ScheduleFragment : Fragment() {
         binding.recSchedule.adapter = ScheduleAdapter()
 
         binding.backHomeBtn.setOnClickListener {
-            val intent = Intent(activity, HomeFragment::class.java)
+            val intent = Intent(activity, MenuActivity::class.java)
             startActivity(intent)
         }
         return view
