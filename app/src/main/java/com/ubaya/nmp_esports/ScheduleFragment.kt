@@ -48,10 +48,6 @@ class ScheduleFragment : Fragment() {
         binding.recSchedule.setHasFixedSize(true)
         binding.recSchedule.adapter = ScheduleAdapter()
 
-        binding.backHomeBtn.setOnClickListener {
-            val intent = Intent(activity, MenuActivity::class.java)
-            startActivity(intent)
-        }
         return view
     }
 
