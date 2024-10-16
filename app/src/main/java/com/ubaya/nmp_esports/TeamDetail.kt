@@ -13,9 +13,10 @@ class TeamDetail : AppCompatActivity() {
         binding = ActivityTeamDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val index = intent.getIntExtra("team_index", 0)
-        val selectedTeam = DetailTeamData.detailTeam[index]
+        val indexTeam = intent.getIntExtra("team_index", 0)
+        val selectedTeam = DetailTeamData.detailTeam[indexTeam]
 
+        val indexGame = intent.getStringExtra("game_index")?: ""
         binding.txtNamaTeam.text = selectedTeam.teamName
 
         binding.recTeamDetails.layoutManager = LinearLayoutManager(this)
@@ -24,6 +25,7 @@ class TeamDetail : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener{
             val intent = Intent(this, TeamActivity::class.java)
+            intent.putExtra("game_index", indexGame.toInt())
             startActivity(intent)
         }
     }
