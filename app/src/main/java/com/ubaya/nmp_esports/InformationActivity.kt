@@ -18,7 +18,7 @@ class InformationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.backHomeBtn.setOnClickListener {
-            val intent = Intent(this, HomeFragment::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
         var numLike = 0;
