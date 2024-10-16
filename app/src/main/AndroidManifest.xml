@@ -16,6 +16,12 @@
             android:name=".TeamActivity"
             android:theme="@style/Theme.AppCompat.Light"
             android:exported="false" />
+
+        <activity
+            android:name=".TeamDetail"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:exported="false" />
+
         <activity
             android:name=".AchievementDetailActivity"
             android:exported="false"

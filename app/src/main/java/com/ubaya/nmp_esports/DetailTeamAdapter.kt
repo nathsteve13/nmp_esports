@@ -18,11 +18,12 @@ class DetailTeamAdapter(private val detailTeam: DetailTeam) : RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        return DetailTeamData.detailTeam.size
+        return detailTeam.members.size
     }
 
     override fun onBindViewHolder(holder: DetailTeamAdapter.DetailTeamViewHolder, position: Int) {
         holder.binding.txtName.text = detailTeam.members[position]
         holder.binding.txtRole.text = detailTeam.roles[position]
+        holder.binding.imgMember.setImageResource(detailTeam.idImg[position])
     }
 }

@@ -1,13 +1,8 @@
 package com.ubaya.nmp_esports
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ubaya.nmp_esports.databinding.ActivityPlayBinding
-import com.ubaya.nmp_esports.databinding.ActivityScheduleDetailBinding
 import com.ubaya.nmp_esports.databinding.ActivityTeamDetailBinding
 
 class TeamDetail : AppCompatActivity() {
@@ -19,6 +14,7 @@ class TeamDetail : AppCompatActivity() {
 
         val index = intent.getIntExtra("team_index", 0)
         val selectedTeam = DetailTeamData.detailTeam[index]
+
         binding.txtNamaTeam.text = selectedTeam.teamName
 
         binding.recTeamDetails.layoutManager = LinearLayoutManager(this)
