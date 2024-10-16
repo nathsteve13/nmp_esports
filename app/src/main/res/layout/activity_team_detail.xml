@@ -5,12 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
     tools:context=".TeamDetail">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/panelTop"
         android:layout_width="412dp"
         android:layout_height="75dp"
+        android:paddingTop="40dp"
         app:cardBackgroundColor="@color/material_dynamic_secondary10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

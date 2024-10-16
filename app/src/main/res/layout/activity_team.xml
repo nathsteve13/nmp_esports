@@ -6,6 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
     android:background="@color/white"
     tools:context=".TeamActivity">
 
@@ -17,6 +18,7 @@
         android:id="@+id/panelTop"
         android:layout_width="0dp"
         android:layout_height="75dp"
+        android:paddingTop="40dp"
         app:cardBackgroundColor="@color/material_dynamic_secondary10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

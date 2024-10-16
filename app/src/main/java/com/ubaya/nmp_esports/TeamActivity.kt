@@ -35,5 +35,6 @@ class TeamActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
     }
 }
