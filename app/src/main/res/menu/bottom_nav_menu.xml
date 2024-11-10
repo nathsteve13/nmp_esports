@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/whatweplay"
         android:icon="@drawable/baseline_home_filled_24"
-        android:title="Home"/>
+        android:title="What We Play"/>
     <item
-        android:id="@+id/profile"
+        android:id="@+id/whoweare"
         android:icon="@drawable/baseline_person_24"
-        android:title="Profile" />
+        android:title="Who We Are" />
     <item
         android:id="@+id/schedule"
         android:icon="@drawable/baseline_calendar_month_24"
-        android:title="Schedule"/>
+        android:title="Our Schedule"/>
 
 </menu>

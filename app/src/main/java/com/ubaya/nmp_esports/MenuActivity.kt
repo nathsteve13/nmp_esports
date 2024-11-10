@@ -17,14 +17,14 @@ class MenuActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomeFragment())
+        replaceFragment(PlayFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> {
-                    replaceFragment(HomeFragment())
+                R.id.whatweplay -> {
+                    replaceFragment(PlayFragment())
                 }
-                R.id.profile -> {
+                R.id.whoweare -> {
                     replaceFragment(ProfileFragment())
                 }
                 R.id.schedule -> {
