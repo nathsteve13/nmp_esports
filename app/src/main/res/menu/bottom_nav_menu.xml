@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/whatweplay"
-        android:icon="@drawable/baseline_home_filled_24"
+        android:icon="@drawable/baseline_videogame_asset_24"
         android:title="What We Play"/>
     <item
         android:id="@+id/whoweare"
