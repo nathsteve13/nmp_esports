@@ -25,7 +25,7 @@ class MenuActivity : AppCompatActivity() {
                     replaceFragment(PlayFragment())
                 }
                 R.id.whoweare -> {
-                    replaceFragment(ProfileFragment())
+                    replaceFragment(WhoWeAreFragment())
                 }
                 R.id.schedule -> {
                     replaceFragment(ScheduleFragment())
