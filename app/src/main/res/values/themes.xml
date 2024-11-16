@@ -3,5 +3,7 @@
 
     <style name="Theme.Nmp_esports" parent="android:Theme.Material.Light.NoActionBar" >
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>

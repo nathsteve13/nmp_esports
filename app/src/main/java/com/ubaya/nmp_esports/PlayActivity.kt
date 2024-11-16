@@ -22,9 +22,5 @@ class PlayActivity : AppCompatActivity() {
         binding.recGames.setHasFixedSize(true)
         binding.recGames.adapter = GameAdapter()
 
-        binding.btnBack.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

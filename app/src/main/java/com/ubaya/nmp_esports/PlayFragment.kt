@@ -41,10 +41,6 @@ class PlayFragment : Fragment() {
         binding.recGames.setHasFixedSize(true)
         binding.recGames.adapter = GameAdapter()
 
-        binding.btnBack.setOnClickListener {
-            val intent = Intent(requireContext(), MenuActivity::class.java)
-            startActivity(intent)
-        }
         return view
     }
 

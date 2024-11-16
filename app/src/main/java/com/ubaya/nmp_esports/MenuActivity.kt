@@ -1,6 +1,9 @@
 package com.ubaya.nmp_esports
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +24,7 @@ class MenuActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
 
         val toggle = ActionBarDrawerToggle(this, binding.drawerLayout, binding.toolbar, R.string.navigation_drawer_open,
             R.string.navigation_drawer_close)
@@ -49,6 +52,35 @@ class MenuActivity : AppCompatActivity() {
             }
             true
         }
+
+        val sharedPref = getSharedPreferences("user_session", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("username", "Guest")
+
+        val headerView = binding.navView.getHeaderView(0)
+        val txtName = headerView.findViewById<TextView>(R.id.txtName)
+        txtName.text = username
+
+        binding.navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_logout -> {
+                    val sharedPref = getSharedPreferences("user_session", Context.MODE_PRIVATE)
+                    with(sharedPref.edit()) {
+                        clear()
+                        apply()
+                    }
+
+                    // Mengarahkan user kembali ke LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else -> false
+            }
+        }
+
+
     }
 
     override fun onBackPressed() {

@@ -14,7 +14,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="8dp"
-        android:src="@android:color/darker_gray"
+        android:src="@drawable/img"
         app:layout_constraintBottom_toTopOf="@+id/txtName"
         app:layout_constraintStart_toStartOf="parent" />
 
