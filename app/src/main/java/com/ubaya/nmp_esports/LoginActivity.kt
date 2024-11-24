@@ -12,6 +12,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.ubaya.nmp_esports.databinding.ActivityLoginBinding
 import org.json.JSONObject
+import java.security.MessageDigest
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -31,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val username = binding.usernameTxt.text.toString()
             val password = binding.pwdTxt.text.toString()
-
             login(username, password)
         }
 
@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(username: String, password: String) {
-        val url = "http://192.168.0.107/get_members.php"
+        val url = "https://ubaya.xyz/native/160422124/get_members.php"
         val queue = Volley.newRequestQueue(this)
 
         val stringRequest = object : StringRequest(
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
                     val jsonObject = JSONObject(response)
                     val result = jsonObject.getString("result")
 
-                    if (result == "OK") {
+                    if (result == "success") {
                         val data = jsonObject.getJSONObject("data")
                         val userId = data.getInt("idmember")
                         val username = data.getString("username")
@@ -68,7 +68,8 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(this, "Username atau password salah", Toast.LENGTH_SHORT).show()
+                        val message = jsonObject.getString("message")
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
                     Log.e("apiresult", e.message.toString())
@@ -90,4 +91,6 @@ class LoginActivity : AppCompatActivity() {
 
         queue.add(stringRequest)
     }
+
+
 }
