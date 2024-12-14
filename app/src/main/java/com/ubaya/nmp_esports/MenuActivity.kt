@@ -1,5 +1,6 @@
 package com.ubaya.nmp_esports
 
+import JoinProposalActivity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -74,6 +75,12 @@ class MenuActivity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
+                    true
+                }
+
+                R.id.nav_join_proposal -> {
+                    val intent = Intent(this, JoinProposalActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false

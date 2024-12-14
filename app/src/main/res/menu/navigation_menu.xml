@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_profile"
+        <item android:id="@+id/nav_join_proposal"
             android:icon="@drawable/baseline_person_4_24"
             android:title="Apply Team"/>
         <item android:id="@+id/nav_logout"
