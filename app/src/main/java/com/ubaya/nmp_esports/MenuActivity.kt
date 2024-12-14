@@ -1,6 +1,5 @@
 package com.ubaya.nmp_esports
 
-import JoinProposalActivity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle

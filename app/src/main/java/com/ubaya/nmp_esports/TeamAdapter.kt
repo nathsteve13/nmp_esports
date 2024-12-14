@@ -28,10 +28,10 @@ class TeamAdapter(
     override fun onBindViewHolder(holder: TeamAdapter.TeamViewHolder, position: Int) {
         val team = teamArray[position]
         val gameName = getGameNameById(team.idGame, gameArray)
-        holder.binding.txtTeam.text = team.teamName
-        holder.binding.txtGame.text = gameName ?: "Unknown Game"
+        holder.binding.txtTeamName.text = team.teamName
+        holder.binding.txtGameName.text = gameName ?: "Unknown Game"
 
-        holder.binding.btnView.setOnClickListener {
+        holder.binding.btnStatus.setOnClickListener {
             val intent = Intent(holder.itemView.context, TeamDetail::class.java)
             intent.putExtra("team_index", team.idTeam)
             intent.putExtra("game_index", team.idGame)

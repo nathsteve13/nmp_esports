@@ -80,5 +80,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.circleimageview)
+    implementation("com.squareup.picasso:picasso:2.8")
+
 
 }
