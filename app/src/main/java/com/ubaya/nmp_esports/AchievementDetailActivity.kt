@@ -25,9 +25,13 @@ class AchievementDetailActivity : AppCompatActivity() {
         binding = ActivityAchievementDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Mengambil index game yang dipilih dari Intent
         val index = intent.getIntExtra("game_index", 0)
-        val selectedGame = gameData.games[index].name
-        binding.txtGameName.setText(selectedGame)
+
+        // Mengambil idgame yang sesuai dengan index
+        val selectedGameId = gameData.games[index].idgame.toString()
+        val selectedGameName = gameData.games[index].name
+        binding.txtGameName.setText(selectedGameName)
 
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, PlayActivity::class.java)
@@ -35,11 +39,12 @@ class AchievementDetailActivity : AppCompatActivity() {
         }
 
         // Ambil data achievement dari API menggunakan Volley
-        fetchAchievements(selectedGame)
+        fetchAchievements(selectedGameId)
     }
 
-    private fun fetchAchievements(selectedGame: String) {
-        val url = "https://ubaya.xyz/native/160422124/get_achievements.php?game_name=$selectedGame"
+    private fun fetchAchievements(selectedGameId: String) {
+        // Mengubah URL untuk menggunakan idgame
+        val url = "https://ubaya.xyz/native/160422124/get_achievements.php?idgame=$selectedGameId"
         val queue = Volley.newRequestQueue(this)
 
         val request = JsonObjectRequest(Request.Method.GET, url, null,
@@ -50,7 +55,7 @@ class AchievementDetailActivity : AppCompatActivity() {
                         val data: JSONArray = response.getJSONArray("data")
                         achievementList.clear()
 
-                        // Parse data prestasi dan filter berdasarkan game
+                        // Parse data prestasi dan filter berdasarkan idgame
                         for (i in 0 until data.length()) {
                             val achievementObject: JSONObject = data.getJSONObject(i)
                             val title = achievementObject.getString("name")
@@ -58,7 +63,8 @@ class AchievementDetailActivity : AppCompatActivity() {
                             val team = achievementObject.getString("nama_tim")
                             val description = achievementObject.getString("description")
 
-                            val achievement = Achievement(title, selectedGame, date, team, description)
+                            // Menambahkan achievement ke dalam list
+                            val achievement = Achievement(title, selectedGameId, date, team, description)
                             achievementList.add(achievement)
                         }
 
@@ -79,9 +85,9 @@ class AchievementDetailActivity : AppCompatActivity() {
                                 val selectedYear = years[position]
 
                                 val filteredAchievements: List<Achievement> = if (selectedYear == "All") {
-                                    achievementList.filter { it.achievementGame == selectedGame }
+                                    achievementList.filter { it.achievementGame == selectedGameId }
                                 } else {
-                                    achievementList.filter { it.achievementGame == selectedGame && it.achievementDate == selectedYear }
+                                    achievementList.filter { it.achievementGame == selectedGameId && it.achievementDate == selectedYear }
                                 }
 
                                 val displayText = if (filteredAchievements.isEmpty()) {
