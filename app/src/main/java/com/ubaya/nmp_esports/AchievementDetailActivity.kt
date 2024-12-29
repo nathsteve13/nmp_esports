@@ -5,15 +5,21 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
+import org.json.JSONArray
+import org.json.JSONObject
 
 class AchievementDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAchievementDetailBinding
+    private val achievementList = mutableListOf<Achievement>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAchievementDetailBinding.inflate(layoutInflater)
@@ -21,57 +27,89 @@ class AchievementDetailActivity : AppCompatActivity() {
 
         val index = intent.getIntExtra("game_index", 0)
         val selectedGame = gameData.games[index].name
-        binding.txtGameName.setText(selectedGame.toString())
-
-//        val imgId = gameData.games[index].imageId
-//        binding.imgGame.setImageResource(imgId)
+        binding.txtGameName.setText(selectedGame)
 
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, PlayActivity::class.java)
             startActivity(intent)
         }
-        val years = AchievementData.achievement
-            .filter { it.achievementGame == selectedGame }
-            .map { it.achievementDate }
-            .distinct()
-            .toMutableList()
-        years.add(0, "All")
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, years)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerDate.adapter = adapter
+        // Ambil data achievement dari API menggunakan Volley
+        fetchAchievements(selectedGame)
+    }
 
-        binding.spinnerDate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val selectedYear = years[position]
+    private fun fetchAchievements(selectedGame: String) {
+        val url = "https://ubaya.xyz/native/160422124/get_achievements.php?game_name=$selectedGame"
+        val queue = Volley.newRequestQueue(this)
 
-                val filteredAchievements: List<Achievement> = if (selectedYear == "All") {
-                    AchievementData.achievement.filter { it.achievementGame == selectedGame }
-                } else {
-                    AchievementData.achievement.filter {
-                        it.achievementGame == selectedGame && it.achievementDate == selectedYear
+        val request = JsonObjectRequest(Request.Method.GET, url, null,
+            { response ->
+                try {
+                    val result = response.getString("result")
+                    if (result == "success") {
+                        val data: JSONArray = response.getJSONArray("data")
+                        achievementList.clear()
+
+                        // Parse data prestasi dan filter berdasarkan game
+                        for (i in 0 until data.length()) {
+                            val achievementObject: JSONObject = data.getJSONObject(i)
+                            val title = achievementObject.getString("name")
+                            val date = achievementObject.getString("date")
+                            val team = achievementObject.getString("nama_tim")
+                            val description = achievementObject.getString("description")
+
+                            val achievement = Achievement(title, selectedGame, date, team, description)
+                            achievementList.add(achievement)
+                        }
+
+                        // Menampilkan spinner dengan tahun yang berbeda
+                        val years = achievementList
+                            .map { it.achievementDate }
+                            .distinct()
+                            .toMutableList()
+                        years.add(0, "All")
+
+                        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, years)
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        binding.spinnerDate.adapter = adapter
+
+                        // Filter dan tampilkan achievement sesuai tahun yang dipilih
+                        binding.spinnerDate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                                val selectedYear = years[position]
+
+                                val filteredAchievements: List<Achievement> = if (selectedYear == "All") {
+                                    achievementList.filter { it.achievementGame == selectedGame }
+                                } else {
+                                    achievementList.filter { it.achievementGame == selectedGame && it.achievementDate == selectedYear }
+                                }
+
+                                val displayText = if (filteredAchievements.isEmpty()) {
+                                    "No achievement in $selectedYear"
+                                } else {
+                                    filteredAchievements.joinToString(separator = "\n") { achievement ->
+                                        "${achievement.achievementTitle} in ${achievement.achievementGame} (${achievement.achievementDate}), Team: ${achievement.achievementTeam}"
+                                    }
+                                }
+
+                                binding.txtAchievement.text = displayText
+                            }
+
+                            override fun onNothingSelected(p0: AdapterView<*>?) {
+                                // Implement if needed
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this, "Failed to load achievements", Toast.LENGTH_SHORT).show()
                     }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error parsing data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
-                val displayText = if (filteredAchievements.isEmpty()) {
-                    "No achievement in $selectedYear"
-                } else {
-                    filteredAchievements.joinToString(separator = "\n") { achievement ->
-                        "${achievement.achievementTitle} in ${achievement.achievementGame} (${achievement.achievementDate}), Team: ${achievement.achievementTeam}"
-                    }
-                }
+            },
+            { error ->
+                Toast.makeText(this, "Failed to fetch data", Toast.LENGTH_SHORT).show()
+            })
 
-                binding.txtAchievement.text = displayText
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
-        }
+        queue.add(request)
     }
 }

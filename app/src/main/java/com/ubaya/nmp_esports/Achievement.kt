@@ -4,5 +4,6 @@ data class Achievement (
     var achievementTitle: String,
     var achievementGame: String,
     var achievementDate: String,
-    var achievementTeam: String
+    var achievementTeam: String,
+    var description: String
 )
