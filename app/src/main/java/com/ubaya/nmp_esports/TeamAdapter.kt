@@ -32,6 +32,8 @@ class TeamAdapter(
         holder.binding.btnStatus.setOnClickListener {
             val intent = Intent(holder.itemView.context, TeamDetail::class.java)
             intent.putExtra("team_id", team.idteam)
+            intent.putExtra("game_id", team.idgame)
+            intent.putExtra("team_name", team.name)
             holder.itemView.context.startActivity(intent)
         }
     }

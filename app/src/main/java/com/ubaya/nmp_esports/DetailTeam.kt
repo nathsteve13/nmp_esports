@@ -2,9 +2,7 @@ package com.ubaya.nmp_esports
 
 data class DetailTeam(
     var idTeam: Int,
-
-    var idImg: Array<Int>,
     var teamName: String,
-    var members: Array<String>,
-    var roles: Array<String>,
+    var members: List<String>,
+    var roles: List<String>
 )
