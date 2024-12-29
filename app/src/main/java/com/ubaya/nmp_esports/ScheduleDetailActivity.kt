@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.squareup.picasso.Picasso
 
 import com.ubaya.nmp_esports.databinding.ActivityInformationBinding
 import com.ubaya.nmp_esports.databinding.ActivityScheduleDetailBinding
@@ -37,7 +38,6 @@ class ScheduleDetailActivity : AppCompatActivity() {
         Picasso.get()
             .load(imageUrl)
             .placeholder(R.drawable.esportimage)
-            .error(R.drawable.error_image)
             .into(binding.imgScheduleDetail)
 
         binding.btnNotify.setOnClickListener {

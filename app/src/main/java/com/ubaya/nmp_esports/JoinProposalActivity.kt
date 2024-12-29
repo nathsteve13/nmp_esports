@@ -1,6 +1,7 @@
 package com.ubaya.nmp_esports
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -27,16 +28,34 @@ class JoinProposalActivity : AppCompatActivity() {
         binding = ActivityJoinProposalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val userId = intent.getIntExtra("user_id", 0)
+        // Ambil user ID dari SharedPreferences
+        val sharedPref = getSharedPreferences("user_session", Context.MODE_PRIVATE)
+        val userId = sharedPref.getInt("userId", -1)
 
-        Log.d("DEBUG_INTENT", "User ID: $userId")
+        Log.d("DEBUG_SHARED_PREF", "User ID: $userId")
 
-        proposalAdapter = JoinProposalAdapter(proposalList)
-        binding.recProposal.layoutManager = LinearLayoutManager(this)
-        binding.recProposal.setHasFixedSize(true)
-        binding.recProposal.adapter = proposalAdapter
+        // Cek apakah user ID valid
+        if (userId == -1) {
+            Toast.makeText(this, "Session expired, please login again.", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            // Inisialisasi adapter dan RecyclerView
+            proposalAdapter = JoinProposalAdapter(proposalList)
+            binding.recProposal.layoutManager = LinearLayoutManager(this)
+            binding.recProposal.setHasFixedSize(true)
+            binding.recProposal.adapter = proposalAdapter
 
-        fetchJoinProposals(userId)
+            // Ambil data proposal dari server
+            fetchJoinProposals(userId)
+        }
+
+        // Tombol tambah proposal
+        binding.fabAdd.setOnClickListener {
+            val intent = Intent(this, AddProposalActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -53,6 +72,7 @@ class JoinProposalActivity : AppCompatActivity() {
                         val data: JSONArray = response.getJSONArray("data")
                         proposalList.clear()
 
+                        // Parsing data dari server
                         for (i in 0 until data.length()) {
                             val proposalObject: JSONObject = data.getJSONObject(i)
                             val idJoinProposal = proposalObject.getInt("idjoin_proposal")
@@ -62,6 +82,7 @@ class JoinProposalActivity : AppCompatActivity() {
                             val status = proposalObject.getString("status")
                             val teamName = proposalObject.getString("name")
 
+                            // Tambahkan ke daftar proposal
                             val joinProposal = proposal(
                                 idJoinProposal,
                                 idMember,

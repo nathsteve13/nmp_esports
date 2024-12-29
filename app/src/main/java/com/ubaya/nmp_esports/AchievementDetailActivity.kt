@@ -12,6 +12,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.squareup.picasso.Picasso
 import com.ubaya.nmp_esports.databinding.ActivityAchievementDetailBinding
 import org.json.JSONArray
 import org.json.JSONObject
@@ -26,7 +27,7 @@ class AchievementDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Mendapatkan data yang dikirimkan melalui Intent
-        val gameId = intent.getStringExtra("game_id") ?: "0"
+        val gameId = intent.getIntExtra("game_id", 0)
         val gameName = intent.getStringExtra("game_name") ?: "Unknown Game"
         val gameImage = intent.getStringExtra("game_image") ?: ""
 
@@ -44,7 +45,7 @@ class AchievementDetailActivity : AppCompatActivity() {
         fetchAchievements(gameId)
     }
 
-    private fun fetchAchievements(selectedGameId: String) {
+    private fun fetchAchievements(selectedGameId: Int) {
         // URL API untuk mendapatkan achievements berdasarkan gameId
         val url = "https://ubaya.xyz/native/160422124/get_achievements.php?idgame=$selectedGameId"
         val queue = Volley.newRequestQueue(this)
