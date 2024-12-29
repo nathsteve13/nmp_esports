@@ -1,13 +1,14 @@
 package com.ubaya.nmp_esports
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ubaya.nmp_esports.databinding.TeamCardBinding
 
-class TeamAdapter(private val teams: List<Team>) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
+class TeamAdapter(
+    private val teams: List<Team>,
+) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
 
     class TeamViewHolder(val binding: TeamCardBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -25,9 +26,7 @@ class TeamAdapter(private val teams: List<Team>) : RecyclerView.Adapter<TeamAdap
 
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
         val team = teams[position]
-        Log.d("DEBUG_ADAPTER", "Team Name: ${team.name}")
 
-        holder.binding.txtTeamName.text = team.idgame.toString()
         holder.binding.txtTeamName.text = team.name
 
         holder.binding.btnStatus.setOnClickListener {
