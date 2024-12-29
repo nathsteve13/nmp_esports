@@ -18,9 +18,9 @@ class PlayActivity : AppCompatActivity() {
         binding = ActivityPlayBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.recGames.layoutManager = LinearLayoutManager(this)
-        binding.recGames.setHasFixedSize(true)
-        binding.recGames.adapter = GameAdapter()
+//        binding.recGames.layoutManager = LinearLayoutManager(this)
+//        binding.recGames.setHasFixedSize(true)
+//        binding.recGames.adapter = GameAdapter()
 
     }
 }

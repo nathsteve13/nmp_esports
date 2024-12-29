@@ -1,66 +1,82 @@
 package com.ubaya.nmp_esports
 
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ubaya.nmp_esports.databinding.ActivityPlayBinding
-import com.ubaya.nmp_esports.databinding.FragmentHomeBinding
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.ubaya.nmp_esports.databinding.FragmentPlayBinding
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+import org.json.JSONArray
+import org.json.JSONObject
 
 class PlayFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
     private lateinit var binding: FragmentPlayBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val gameList = mutableListOf<Game>()
+    private lateinit var gameAdapter: GameAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentPlayBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        gameAdapter = GameAdapter(gameList)
         binding.recGames.layoutManager = LinearLayoutManager(requireContext())
-        binding.recGames.setHasFixedSize(true)
-        binding.recGames.adapter = GameAdapter()
+        binding.recGames.adapter = gameAdapter
+
+        fetchGames()
 
         return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PlayFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PlayFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    @SuppressLint("NotifyDataSetChanged")
+    private fun fetchGames() {
+        val url = "https://ubaya.xyz/native/160422124/get_games.php"
+        val queue = Volley.newRequestQueue(requireContext())
+
+        val request = JsonObjectRequest(Request.Method.GET, url, null,
+            { response ->
+                try {
+                    Log.d("DEBUG", "Response: $response")
+                    val result = response.getString("result")
+                    if (result == "success") {
+                        val data: JSONArray = response.getJSONArray("data")
+                        gameList.clear()
+
+                        for (i in 0 until data.length()) {
+                            val gameObject: JSONObject = data.getJSONObject(i)
+                            val idgame = gameObject.getInt("idgame")
+                            val name = gameObject.getString("name")
+                            val description = gameObject.getString("description")
+                            val imageUrl = gameObject.getString("image_url")
+
+                            val game = Game(idgame, name, description, imageUrl)
+                            gameList.add(game)
+                        }
+
+                        gameAdapter.notifyDataSetChanged()
+                    } else {
+                        Toast.makeText(requireContext(), "Failed to load data", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Error parsing data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
-            }
+            },
+            { error ->
+                Log.e("ERROR", "Error fetching data: ${error.message}")
+                Toast.makeText(requireContext(), "Failed to fetch data", Toast.LENGTH_SHORT).show()
+            })
+
+        queue.add(request)
     }
 }

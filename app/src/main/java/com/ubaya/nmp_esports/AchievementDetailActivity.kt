@@ -20,11 +20,11 @@ class AchievementDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val index = intent.getIntExtra("game_index", 0)
-        val selectedGame = gameData.games[index].gameTitle
-        binding.txtGameName.setText(selectedGame)
+        val selectedGame = gameData.games[index].name
+        binding.txtGameName.setText(selectedGame.toString())
 
-        val imgId = gameData.games[index].imageId
-        binding.imgGame.setImageResource(imgId)
+//        val imgId = gameData.games[index].imageId
+//        binding.imgGame.setImageResource(imgId)
 
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, PlayActivity::class.java)

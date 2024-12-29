@@ -8,7 +8,7 @@ import com.ubaya.nmp_esports.databinding.TeamCardBinding
 
 class TeamAdapter(
     private val teamArray: Array<Team>,
-    private val gameArray: Array<game>
+    private val gameArray: Array<Game>
 ) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
     class TeamViewHolder(val binding: TeamCardBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -19,9 +19,9 @@ class TeamAdapter(
         return TeamViewHolder(binding)
     }
 
-    private fun getGameNameById(idGame: String, gameArray: Array<game>): String? {
-        val game = gameArray.find { it.idGame == idGame }
-        return game?.gameTitle
+    private fun getGameNameById(idGame: String, gameArray: Array<Game>): String? {
+        val game = gameArray.find { it.idgame.toString() == idGame }
+        return game?.name
     }
 
 

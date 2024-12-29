@@ -19,16 +19,16 @@ class TeamActivity : AppCompatActivity() {
 
         val index = intent.getIntExtra("game_index", 0)
         val selectedGame = gameData.games[index]
-        val selectedGameId = selectedGame.idGame
-        val selectedGameImage = selectedGame.imageId
+        val selectedGameId = selectedGame.idgame
+//        val selectedGameImage = selectedGame.imageId
+//
+//        val filteredTeams = TeamData.team.filter { it.idGame == selectedGameId }
+//
+//        binding.imgViewGame.setImageResource(selectedGameImage)
 
-        val filteredTeams = TeamData.team.filter { it.idGame == selectedGameId }
-
-        binding.imgViewGame.setImageResource(selectedGameImage)
-
-        binding.recTeam.layoutManager = LinearLayoutManager(this)
-        binding.recTeam.setHasFixedSize(true)
-        binding.recTeam.adapter = TeamAdapter(filteredTeams.toTypedArray(), gameData.games)
+//        binding.recTeam.layoutManager = LinearLayoutManager(this)
+//        binding.recTeam.setHasFixedSize(true)
+//        binding.recTeam.adapter = TeamAdapter(filteredTeams.toTypedArray(), gameData.games)
 
         binding.btnBack.setOnClickListener{
             val intent = Intent(this, PlayActivity::class.java)
