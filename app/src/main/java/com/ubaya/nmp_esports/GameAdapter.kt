@@ -36,6 +36,8 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
         holder.binding.btnAchievement.setOnClickListener {
             val intent = Intent(holder.itemView.context, AchievementDetailActivity::class.java)
             intent.putExtra("game_id", game.idgame)
+            intent.putExtra("game_name", game.name)
+            intent.putExtra("game_image", game.imageUrl)
             holder.itemView.context.startActivity(intent)
         }
 

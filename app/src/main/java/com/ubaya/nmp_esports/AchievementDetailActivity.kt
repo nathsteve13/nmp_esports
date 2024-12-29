@@ -25,25 +25,27 @@ class AchievementDetailActivity : AppCompatActivity() {
         binding = ActivityAchievementDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Mengambil index game yang dipilih dari Intent
-        val index = intent.getIntExtra("game_index", 0)
+        // Mendapatkan data yang dikirimkan melalui Intent
+        val gameId = intent.getStringExtra("game_id") ?: "0"
+        val gameName = intent.getStringExtra("game_name") ?: "Unknown Game"
+        val gameImage = intent.getStringExtra("game_image") ?: ""
 
-        // Mengambil idgame yang sesuai dengan index
-        val selectedGameId = gameData.games[index].idgame.toString()
-        val selectedGameName = gameData.games[index].name
-        binding.txtGameName.setText(selectedGameName)
+        // Menampilkan informasi game yang diterima
+        binding.txtGameName.text = gameName  // Menampilkan nama game
+        Picasso.get().load(gameImage).into(binding.imgGame)  // Menampilkan gambar game
 
+        // Kembali ke halaman sebelumnya
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, PlayActivity::class.java)
             startActivity(intent)
         }
 
         // Ambil data achievement dari API menggunakan Volley
-        fetchAchievements(selectedGameId)
+        fetchAchievements(gameId)
     }
 
     private fun fetchAchievements(selectedGameId: String) {
-        // Mengubah URL untuk menggunakan idgame
+        // URL API untuk mendapatkan achievements berdasarkan gameId
         val url = "https://ubaya.xyz/native/160422124/get_achievements.php?idgame=$selectedGameId"
         val queue = Volley.newRequestQueue(this)
 
