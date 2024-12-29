@@ -16,7 +16,7 @@ class ScheduleDetailActivity : AppCompatActivity() {
         const val SCHEDULE_TITLE = "SCHEDULE_TITLE"
         const val SCHEDULE_TIME = "SCHEDULE_TIME"
         const val DESCRIPTION = "DESCRIPTION"
-        const val IMAGE_ID = "IMAGE_ID"
+        const val IMAGE_URL = "IMAGE_URL"
     }
 
     private lateinit var binding: ActivityScheduleDetailBinding
@@ -29,12 +29,16 @@ class ScheduleDetailActivity : AppCompatActivity() {
         val scheduleTitle: String = intent.getStringExtra(SCHEDULE_TITLE).orEmpty()
         val scheduleTime: String = intent.getStringExtra(SCHEDULE_TIME).orEmpty()
         val description: String = intent.getStringExtra(DESCRIPTION).orEmpty()
-        val imageId: Int = intent.getIntExtra(IMAGE_ID, 0)
+        val imageUrl: String = intent.getStringExtra(IMAGE_URL).orEmpty()
 
         binding.txtTitle.text = scheduleTitle
         binding.txtTime.text = scheduleTime
         binding.txtDescription.text = description
-        binding.imgScheduleDetail.setImageResource(imageId)
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(R.drawable.esportimage)
+            .error(R.drawable.error_image)
+            .into(binding.imgScheduleDetail)
 
         binding.btnNotify.setOnClickListener {
             AlertDialog.Builder(this)
