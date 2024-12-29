@@ -33,7 +33,6 @@ class ScheduleAdapter(private val scheduleList: List<Schedule>) : RecyclerView.A
 
         Picasso.get()
             .load(schedule.imageUrl)
-            .placeholder(R.drawable.esportimage)
             .into(holder.binding.imgSchedule)
 
         holder.binding.btnDetail.setOnClickListener {
