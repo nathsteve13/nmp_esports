@@ -52,9 +52,11 @@ class AchievementDetailActivity : AppCompatActivity() {
         val request = JsonObjectRequest(Request.Method.GET, url, null,
             { response ->
                 try {
+                    Log.d("Response", response.toString())  // Log untuk melihat seluruh response dari server
                     val result = response.getString("result")
                     if (result == "success") {
                         val data: JSONArray = response.getJSONArray("data")
+                        Log.d("Data Length", data.length().toString())  // Log untuk melihat jumlah data yang diterima
                         achievementList.clear()
 
                         // Parse data prestasi dan filter berdasarkan idgame
@@ -68,6 +70,9 @@ class AchievementDetailActivity : AppCompatActivity() {
                             // Menambahkan achievement ke dalam list
                             val achievement = Achievement(title, selectedGameId, date, team, description)
                             achievementList.add(achievement)
+
+                            // Log untuk setiap achievement yang diproses
+                            Log.d("Achievement", "Name: $title, Date: $date, Team: $team, Description: $description")
                         }
 
                         // Menampilkan spinner dengan tahun yang berbeda
@@ -81,10 +86,10 @@ class AchievementDetailActivity : AppCompatActivity() {
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         binding.spinnerDate.adapter = adapter
 
-                        // Filter dan tampilkan achievement sesuai tahun yang dipilih
                         binding.spinnerDate.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                                 val selectedYear = years[position]
+                                Log.d("Selected Year", selectedYear)  // Log untuk melihat tahun yang dipilih
 
                                 val filteredAchievements: List<Achievement> = if (selectedYear == "All") {
                                     achievementList.filter { it.achievementGame == selectedGameId }
@@ -111,13 +116,16 @@ class AchievementDetailActivity : AppCompatActivity() {
                         Toast.makeText(this, "Failed to load achievements", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
+                    Log.e("Error", "Error parsing data: ${e.message}")  // Log error jika terjadi exception
                     Toast.makeText(this, "Error parsing data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             },
             { error ->
+                Log.e("Volley Error", "Failed to fetch data: ${error.message}")  // Log error jika request gagal
                 Toast.makeText(this, "Failed to fetch data", Toast.LENGTH_SHORT).show()
             })
 
         queue.add(request)
     }
+
 }
