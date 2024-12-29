@@ -1,15 +1,24 @@
 package com.ubaya.nmp_esports
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.ubaya.nmp_esports.databinding.FragmentHomeBinding
+import com.ubaya.nmp_esports.databinding.FragmentPlayBinding
 import com.ubaya.nmp_esports.databinding.FragmentScheduleBinding
+import org.json.JSONArray
+import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,54 +33,67 @@ private const val ARG_PARAM2 = "param2"
 
 class ScheduleFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
     private lateinit var binding: FragmentScheduleBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val scheduleList = mutableListOf<Schedule>()
+    private lateinit var scheduleAdapter: ScheduleAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentScheduleBinding.inflate(layoutInflater)
+        binding = FragmentScheduleBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        scheduleAdapter = ScheduleAdapter(scheduleList)
         binding.recSchedule.layoutManager = LinearLayoutManager(requireContext())
-        binding.recSchedule.setHasFixedSize(true)
-        binding.recSchedule.adapter = ScheduleAdapter()
+        binding.recSchedule.adapter = scheduleAdapter
+
+        fetchGames()
 
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    @SuppressLint("NotifyDataSetChanged")
+    private fun fetchGames() {
+        val url = "https://ubaya.xyz/native/160422124/get_schedules.php"
+        val queue = Volley.newRequestQueue(requireContext())
 
-    }
+        val request = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                try {
+                    Log.d("DEBUG", "Response: $response")
+                    val result = response.getString("result")
+                    if (result == "success") {
+                        val data: JSONArray = response.getJSONArray("data")
+                        scheduleList.clear()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ScheduleFragment.
-         */
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ScheduleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                        for (i in 0 until data.length()) {
+                            val gameObject: JSONObject = data.getJSONObject(i)
+                            val idevent = gameObject.getInt("idevent")
+                            val name = gameObject.getString("name")
+                            val date = gameObject.getString("date")
+                            val description = gameObject.getString("description")
+                            val imageUrl = gameObject.getString("image_url")
+
+
+                            val schedule = Schedule(idevent, name, date, description, imageUrl)
+                            scheduleList.add(schedule)
+                        }
+
+                        scheduleAdapter.notifyDataSetChanged()
+                    } else {
+                        Toast.makeText(requireContext(), "Failed to load data", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Error parsing data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
-            }
+            },
+            { error ->
+                Log.e("ERROR", "Error fetching data: ${error.message}")
+                Toast.makeText(requireContext(), "Failed to fetch data", Toast.LENGTH_SHORT).show()
+            })
+
+        queue.add(request)
     }
 }
