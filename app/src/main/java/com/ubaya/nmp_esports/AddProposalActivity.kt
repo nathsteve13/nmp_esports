@@ -32,7 +32,6 @@ class AddProposalActivity : AppCompatActivity() {
 
         loadGames()
 
-        // Listener untuk Spinner Game
         binding.spinnerGame.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedGameId = gameIdList[position]
@@ -42,7 +41,6 @@ class AddProposalActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        // Listener untuk Spinner Team
         binding.spinnerTeam.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedTeamId = teamIdList[position]
@@ -51,7 +49,6 @@ class AddProposalActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        // Submit Proposal
         binding.btnApply.setOnClickListener {
             val description = binding.editDescription.text.toString().trim()
             if (selectedGameId != null && selectedTeamId != null && description.isNotBlank()) {
