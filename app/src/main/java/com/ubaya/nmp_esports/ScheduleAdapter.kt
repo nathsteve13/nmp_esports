@@ -39,6 +39,7 @@ class ScheduleAdapter(private val scheduleList: List<Schedule>) : RecyclerView.A
             val context = holder.itemView.context
             val intent = Intent(context, ScheduleDetailActivity::class.java)
 
+            intent.putExtra("schedule_id", schedule.idschedule)
             intent.putExtra("SCHEDULE_TITLE", schedule.title)
             intent.putExtra("SCHEDULE_TIME", schedule.date)
             intent.putExtra("DESCRIPTION", schedule.description)
