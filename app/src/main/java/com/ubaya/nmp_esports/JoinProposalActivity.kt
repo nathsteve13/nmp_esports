@@ -20,6 +20,7 @@ class JoinProposalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityJoinProposalBinding
     private val proposalList = mutableListOf<proposal>()
     private lateinit var proposalAdapter: JoinProposalAdapter
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,7 @@ class JoinProposalActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val sharedPref = getSharedPreferences("user_session", Context.MODE_PRIVATE)
-        val userId = sharedPref.getInt("userId", -1)
+        userId = sharedPref.getInt("userId", -1)
 
         Log.d("DEBUG_SHARED_PREF", "User ID: $userId")
 
@@ -52,6 +53,14 @@ class JoinProposalActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    override fun onResume() {
+        super.onResume()
+        if (userId != -1) {
+            Log.d("DEBUG_RESUME", "Refreshing proposals...")
+            fetchJoinProposals(userId)
+        }
+    }
+
 
     @SuppressLint("NotifyDataSetChanged")
     private fun fetchJoinProposals(userId: Int) {
@@ -65,6 +74,7 @@ class JoinProposalActivity : AppCompatActivity() {
                     val result = response.getString("result")
                     if (result == "success") {
                         val data: JSONArray = response.getJSONArray("data")
+                        proposalList.clear()
                         for (i in 0 until data.length()) {
                             val proposalObject: JSONObject = data.getJSONObject(i)
                             val idJoinProposal = proposalObject.getInt("idjoin_proposal")

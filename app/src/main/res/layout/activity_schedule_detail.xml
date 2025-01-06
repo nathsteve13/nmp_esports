@@ -89,15 +89,41 @@
         android:id="@+id/txtDescription"
         android:layout_width="381dp"
         android:layout_height="199dp"
+        android:layout_marginStart="16dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus quam, faucibus ut congue ac, finibus nec magna. Sed mollis ipsum sapien. Fusce gravida ipsum ut erat feugiat, in laoreet ex vehicula. Nam tempor mi in nibh euismod, vitae vehicula justo elementum. Donec dignissim vitae arcu in dictum. Etiam iaculis malesuada tellus sit amet consequat. Mauris nibh neque, pretium eget mi sit amet, cursus dictum augue. Proin congue felis in turpis rutrum, vel fermentum diam consectetur. Aenean convallis magna in cursus iaculis. Donec varius, libero in euismod efficitur, felis risus sagittis leo, a commodo tortor quam id justo. Nam sem turpis, consequat eu ultricies vitae, vehicula consequat turpis. Donec nec tincidunt ipsum.  "
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="#F3F3F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt123"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <TextView
+        android:id="@+id/txtTeams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Teams"
+        android:textAlignment="viewStart"
         android:textColor="#F3F3F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTime"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintTop_toBottomOf="@+id/txtnaama"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnNotify"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:background="@android:drawable/ic_popup_reminder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTeams"
+        app:layout_constraintVertical_bias="0.88" />
 
     <TextView
         android:id="@+id/textView9"
@@ -108,21 +134,10 @@
         android:textColor="#FDFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnNotify"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription"
-        app:layout_constraintVertical_bias="0.467" />
-
-    <Button
-        android:id="@+id/btnNotify"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:background="@android:drawable/ic_popup_reminder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTeams"
+        app:layout_constraintVertical_bias="0.882" />
 
     <TextView
         android:id="@+id/txtTime"
@@ -139,5 +154,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgScheduleDetail"
         app:layout_constraintVertical_bias="0.051" />
+
+    <TextView
+        android:id="@+id/txt123"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Description :"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTeams"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <TextView
+        android:id="@+id/txtnaama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Team :"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgScheduleDetail"
+        app:layout_constraintVertical_bias="0.144" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
