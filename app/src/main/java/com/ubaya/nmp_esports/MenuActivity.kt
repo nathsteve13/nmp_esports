@@ -69,7 +69,6 @@ class MenuActivity : AppCompatActivity() {
                         apply()
                     }
 
-                    // Mengarahkan user kembali ke LoginActivity
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)

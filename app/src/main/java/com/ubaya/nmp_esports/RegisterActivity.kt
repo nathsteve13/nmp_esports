@@ -26,6 +26,11 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.passTxt.text.toString()
             val confirmPassword = binding.confirmPassTxt.text.toString()
 
+            if (!binding.checkBoxTerms.isChecked) {
+                Toast.makeText(this, "You must agree to the Terms and Conditions", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (password == confirmPassword) {
                 registerAccount(firstName, lastName, username, password)
             } else {
